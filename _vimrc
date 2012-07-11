@@ -31,6 +31,8 @@ endfunction
 "关闭菜单栏
 set guioptions-=m
 set guioptions-=T
+au GUIEnter * simalt ~x "启动GVim时自动窗口最大化
+"F2开启关闭GVim菜单和工具栏
 map <silent> <F2> :if &guioptions =~# 'T' <Bar>
         \set guioptions-=T <Bar>
         \set guioptions-=m <bar>
@@ -65,7 +67,6 @@ set directory=$vim/temp/
 set shiftwidth=4
 set tabstop=4
 set guifont=Courier_New:h11:cANSI
-au GUIEnter * simalt ~x "启动GVim时自动窗口最大化
 
 "自动重新加载_vimrc文件
 autocmd! BufWritePost _vimrc source %
@@ -100,15 +101,17 @@ inoremap ( ()<Esc>i
 inoremap { {}<Esc>i
 inoremap ' ''<Esc>i
 "编辑模式句尾插入分号结束语句
-inoremap <C-e> <Esc>$a;
+inoremap <C-e> <Esc>$a;<Esc>hi
 "语句块大括号插入
 inoremap <C-b> <Esc>o{<CR>}<Esc>O<Backspace>	
 
 "NERDTree插件功能配置
 "F2快捷键打开关闭NERDTree功能
-map <f3> :NERDTreeToggle work<CR>	
+map <F3> :NERDTreeToggle JX<CR>	
 map <C-Tab> :tabnext<CR>
 map <S-Tab> :tabp<CR>
+map <S-Esc> :tabc<CR>
+map <S-T> :tabnew<CR><F3>
 
 "NERDTree Settings{
 		let NERDTreeWinPos ="left"						"将NERDTree的窗口设置在gvim窗口的左边
@@ -117,6 +120,6 @@ map <S-Tab> :tabp<CR>
 "}
 
 "打开VIM无参数时，直接打开NERDTree BookMark 进入工作目录
-"autocmd vimenter * if !argc() | NERDTree work | endif
+"autocmd vimenter * if !argc() | NERDTree JX | endif
 
 
