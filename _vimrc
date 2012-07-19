@@ -112,6 +112,7 @@ map <C-Tab> :tabnext<CR>
 map <S-Tab> :tabp<CR>
 map <S-Esc> :tabc<CR>
 map <S-T> :tabnew<CR><F3>
+map <S-D> :tabnew<CR>:NERDTreeToggle Desktop<CR> 
 
 "NERDTree Settings{
 		let NERDTreeWinPos ="left"						"将NERDTree的窗口设置在gvim窗口的左边
