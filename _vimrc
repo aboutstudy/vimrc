@@ -66,6 +66,8 @@ set backupdir=$vim/temp/
 set directory=$vim/temp/
 set shiftwidth=4
 set tabstop=4
+set softtabstop=4
+set extandtab
 set guifont=Courier_New:h11:cANSI
 
 "自动重新加载_vimrc文件
