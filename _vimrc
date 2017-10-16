@@ -96,6 +96,9 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 "nmap <tab> V>
 "nmap <s-tab> V<
 
+"代码跳转，ctl + \ 分切当前标签页显示函数定义
+map <C-\> :exec("stag ".expand("<cword>"))<CR>  
+
 "InsertOnly模式下键盘映射
 inoremap [ []<Esc>i
 inoremap ( ()<Esc>i
@@ -104,6 +107,8 @@ inoremap { {}<Esc>i
 inoremap ' ''<Esc>i
 "编辑模式句尾插入分号结束语句
 inoremap <C-e> <Esc>$a;<Esc>hi
+"编辑模式数组项尾逗号结束
+inoremap <C-o> <Esc>$a,<CR>
 "语句块大括号插入
 inoremap <C-b> <Esc>o{<CR>}<Esc>O<Backspace>	
 
