@@ -107,8 +107,8 @@ inoremap { {}<Esc>i
 inoremap ' ''<Esc>i
 "编辑模式句尾插入分号结束语句
 inoremap <C-e> <Esc>$a;<Esc>hi
-"编辑模式数组项尾逗号结束
-inoremap <C-o> <Esc>$a,<CR>
+"编辑模式数组键入数组健后自动补上"=>"符号和该键结尾的","符号，最后定位到键值输入光标位置
+inoremap <C-o> <Esc>la<Space>=><Space>,<Esc>i
 "语句块大括号插入
 inoremap <C-b> <Esc>o{<CR>}<Esc>O<Backspace>	
 
