@@ -59,15 +59,21 @@ else
 	colo darkblue
 endif
 
+lo darkblue "背景颜色
 set number
 set nowrap
 set cursorline		"光标所在行高亮
+set hlsearch "搜索高亮
 set backupdir=$vim/temp/
 set directory=$vim/temp/
-set shiftwidth=4
+set shiftwidth=4 
 set tabstop=4
 set softtabstop=4
 set extandtab
+set cindent
+"set formatoptions=tcqro "注释换行时自动加上前导空格和星号
+set formatoptions=tcqr "注释换行时自动加上前导空格和星号
+syntax on "自动语法高亮
 set guifont=Courier_New:h11:cANSI
 
 "自动重新加载_vimrc文件
@@ -80,6 +86,7 @@ set tags=tags;
 set autochdir
 filetype plugin on
 let Tlist_Ctags_Cmd = "ctags\.exe"
+"let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 let Tlist_Show_One_File = 1 "不同时显示多个文件的Tag，只显示当前文件
 let Tlist_Exit_OnlyWindow = 1 "如果Taglist窗口是最后一个窗口时退出VIM
 let Tlist_Use_Right_Window = 1 "让Taglist窗口在右侧显示
@@ -96,8 +103,9 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 "nmap <tab> V>
 "nmap <s-tab> V<
 
-"代码跳转，ctl + \ 分切当前标签页显示函数定义
-map <C-\> :exec("stag ".expand("<cword>"))<CR>  
+"设置代码跳转快捷键
+"ctl + \ 分切当前标签页显示函数定义
+map <C-\> :exec("stag ".expand("<cword>"))<CR>
 
 "InsertOnly模式下键盘映射
 inoremap [ []<Esc>i
@@ -105,12 +113,13 @@ inoremap ( ()<Esc>i
 "inoremap { {<CR><CR>}<Esc>ki<tab>
 inoremap { {}<Esc>i
 inoremap ' ''<Esc>i
+inoremap " ""<Esc>i
 "编辑模式句尾插入分号结束语句
-inoremap <C-e> <Esc>$a;<Esc>hi
-"编辑模式数组键入数组健后自动补上"=>"符号和该键结尾的","符号，最后定位到键值输入光标位置，默认录入一个变量标识符"$"
+inoremap <C-L> <Esc>$a;<Esc>hi
+"编辑模式数组键入数组健后自动补上"=>"符号和该键结尾的","符号，最后定位到键值输入光标位置
 inoremap <C-o> <Esc>la<Space>=><Space>,<Esc>i$
 "语句块大括号插入
-inoremap <C-b> <Esc>o{<CR>}<Esc>O<Backspace>	
+inoremap <C-K> <Esc>$a{<CR>}<Esc>O<Backspace>
 
 "NERDTree插件功能配置
 "F2快捷键打开关闭NERDTree功能
