@@ -59,7 +59,7 @@ else
 	colo darkblue
 endif
 
-lo darkblue "背景颜色
+colo darkblue "背景颜色
 set number
 set nowrap
 set cursorline		"光标所在行高亮
